@@ -14,8 +14,10 @@ namespace SalaryApp.Tests
         [TestMethod()]
         public void LoginTest()
         {
+            var user = new User() { Name = "Dennis", Password = "Pass"};
             var logic = new Logic();
-            Assert.IsFalse(logic.Login());
+
+            Assert.IsTrue(logic.Login("Dennis", "Pass", user));
         }
     }
 }

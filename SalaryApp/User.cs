@@ -8,7 +8,7 @@ namespace SalaryApp
 {
     public class User : Account
     {
-        public User(string name, string password)
+        public User()
         {
             IsAdmin = false;
         }
