@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SalaryApp
 {
-    internal class Logic
+    public class Logic
     {
+        public bool Login()
+        {
+            return false;
+        }
     }
 }

@@ -9,22 +9,15 @@ using System.Threading.Tasks;
 namespace SalaryApp.Tests
 {
     [TestClass()]
-    public class ProgramTests
+    public class LogicTests
     {
         [TestMethod()]
         public void LoginTest()
         {
             var user = new User("Dennis", "Pass");
-            var logic = new Logic();
+            Logic logic = new Logic();
 
-            Assert.IsTrue(logic.Login("Dennis", "Pass", user));
+            Assert.IsTrue(logic.Login());
         }
-    }
-}
-
-namespace SalaryAppTests
-{
-    internal class ProgramTests
-    {
     }
 }
