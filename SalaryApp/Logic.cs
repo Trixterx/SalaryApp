@@ -21,9 +21,6 @@ namespace SalaryApp
                 string username = Console.ReadLine();
                 Console.Write("Password: ");
                 string password = Console.ReadLine();
-
-                if (Login(username, password))
-
             }
 
         }
