@@ -6,6 +6,8 @@ namespace SalaryApp
     {
         static void Main(string[] args)
         {
+            var logic = new Logic();
+            logic.Run();
         }
     }
 }
