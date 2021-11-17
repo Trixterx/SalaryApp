@@ -6,11 +6,6 @@ namespace SalaryApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
-        public void Test()
-        {
-
         }
     }
 }
