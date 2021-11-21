@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryApp
 {
@@ -91,9 +88,11 @@ namespace SalaryApp
                         case 1:
                             Console.WriteLine($"Salary: {userAccount.Salary}");
                             break;
+
                         case 2:
                             Console.WriteLine($"Role: {userAccount.Role}");
                             break;
+
                         case 3:
                             Console.WriteLine("Remove your account");
                             Console.Write("Username: ");
@@ -103,9 +102,11 @@ namespace SalaryApp
 
                             run = RemoveYourAccount(userAccount, run, username, password);
                             break;
+
                         case 0:
                             run = false;
                             break;
+
                         default:
                             Console.WriteLine("Wrong input, try again.");
                             break;
@@ -117,7 +118,6 @@ namespace SalaryApp
                 }
             }
         }
-
 
         public bool RemoveYourAccount(Account userAccount, bool run, string username, string password)
         {
@@ -142,7 +142,6 @@ namespace SalaryApp
 
             return run;
         }
-
 
         private void AdminMenu(Account userAccount)
         {
@@ -170,12 +169,15 @@ namespace SalaryApp
                         case 1:
                             Console.WriteLine($"Salary: {userAccount.Salary}");
                             break;
+
                         case 2:
                             Console.WriteLine($"Role: {userAccount.Role}");
                             break;
+
                         case 3:
                             Console.WriteLine(PrintUsers());
                             break;
+
                         case 4:
                             Console.WriteLine("Create a new account");
                             Console.Write("Username: ");
@@ -185,6 +187,7 @@ namespace SalaryApp
 
                             CreateNewAccount(username, password);
                             break;
+
                         case 5:
                             Console.WriteLine("Remove a account");
                             Console.Write("Username: ");
@@ -194,9 +197,11 @@ namespace SalaryApp
 
                             RemoveAccount(username, password);
                             break;
+
                         case 0:
                             run = false;
                             break;
+
                         default:
                             Console.WriteLine("Wrong input, try again.");
                             break;
@@ -257,6 +262,7 @@ namespace SalaryApp
                                 Console.WriteLine("Already exist.");
                             }
                             break;
+
                         case "n":
                             if (CreateUser(username, password))
                             {
@@ -267,6 +273,7 @@ namespace SalaryApp
                                 Console.WriteLine("Already exist.");
                             }
                             break;
+
                         default:
                             Console.WriteLine("Something went wrong.");
                             break;
@@ -329,9 +336,6 @@ namespace SalaryApp
         public bool StringIsNullEmptyOrWhiteSpace(string str)
         {
             return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
-
-
-
         }
     }
 }
