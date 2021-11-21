@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace SalaryApp
+﻿namespace SalaryApp
 {
-    static class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var logic = new Logic();
             logic.Run();

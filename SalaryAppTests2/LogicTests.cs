@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SalaryApp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryApp.Tests
 {
@@ -14,7 +8,7 @@ namespace SalaryApp.Tests
         [TestMethod()]
         public void LoginTest()
         {
-            var user = new User() { Name = "Dennis", Password = "Pass"};
+            var user = new User() { Name = "Dennis", Password = "Pass" };
             var logic = new Logic();
 
             var loginUser = logic.Login(user.Name, user.Password);
@@ -50,7 +44,6 @@ namespace SalaryApp.Tests
             var logic = new Logic();
 
             Assert.IsTrue(logic.CreateUser(user.Name, user.Password));
-
         }
 
         [TestMethod()]
