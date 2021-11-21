@@ -17,7 +17,10 @@ namespace SalaryApp.Tests
             var user = new User() { Name = "Dennis", Password = "Pass"};
             var logic = new Logic();
 
-            Assert.IsTrue(logic.Login("Dennis", "Pass", user));
+            var loginUser = logic.Login(user.Name, user.Password);
+
+            Assert.AreEqual("Dennis", loginUser.Name);
+            Assert.AreEqual("Pass", loginUser.Password);
         }
     }
 }
