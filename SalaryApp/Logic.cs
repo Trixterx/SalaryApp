@@ -203,6 +203,8 @@ namespace SalaryApp
             }
         }
 
+
+
         private void RemoveAccount(string username, string password)
         {
             if (!StringIsNullEmptyOrWhiteSpace(username) && !StringIsNullEmptyOrWhiteSpace(password))
