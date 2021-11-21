@@ -40,7 +40,7 @@ jobs:
 
   macos:
     runs-on: macos-latest
-    needs: windows
+    needs: ubuntu
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -56,7 +56,7 @@ jobs:
       
   deployment:
     runs-on: ${( matrix.os )}
-    needs: macos
+    needs: [windows, ubuntu, macos]
     if: github.event_name == 'pull_request'
     strategy:
      matrix:
