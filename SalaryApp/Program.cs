@@ -2,10 +2,12 @@
 
 namespace SalaryApp
 {
-    public class Program
+    static class Program
     {
         static void Main(string[] args)
         {
+            var logic = new Logic();
+            logic.Run();
         }
     }
 }
