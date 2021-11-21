@@ -22,5 +22,57 @@ namespace SalaryApp.Tests
             Assert.AreEqual("Dennis", loginUser.Name);
             Assert.AreEqual("Pass", loginUser.Password);
         }
+
+        [TestMethod()]
+        public void RemoveYourAccountTest()
+        {
+            var user = new User() { Name = "Rauf", Password = "Hemligt" };
+            var logic = new Logic();
+
+            Assert.IsFalse(logic.RemoveYourAccount(user, true, user.Name, user.Password));
+        }
+
+        [TestMethod()]
+        public void PrintUsersTest()
+        {
+            var user = new User() { Name = "Rauf", Password = "Hemligt" };
+
+            var logic = new Logic();
+
+            Assert.AreEqual($"Name: {user.Name} | Password: {user.Password}", logic.PrintUsers());
+        }
+
+        [TestMethod()]
+        public void CreateNewUserTest()
+        {
+            var user = new User() { Name = "Jan", Password = "Hem" };
+
+            var logic = new Logic();
+
+            Assert.IsTrue(logic.CreateUser(user.Name, user.Password));
+
+        }
+
+        [TestMethod()]
+        public void CreateNewAdminTest()
+        {
+            var user = new Admin() { Name = "Jan", Password = "Hem" };
+
+            var logic = new Logic();
+
+            Assert.IsTrue(logic.CreateAdmin(user.Name, user.Password));
+        }
+
+        [TestMethod()]
+        public void CheckStringTest()
+        {
+            string str = null;
+            string str2 = "Hej";
+
+            var logic = new Logic();
+
+            Assert.IsTrue(logic.StringIsNullEmptyOrWhiteSpace(str));
+            Assert.IsFalse(logic.StringIsNullEmptyOrWhiteSpace(str2));
+        }
     }
 }

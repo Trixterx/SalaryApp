@@ -101,24 +101,7 @@ namespace SalaryApp
                             Console.Write("Password: ");
                             string password = Console.ReadLine();
 
-                            if (!StringIsNullEmptyOrWhiteSpace(username) && !StringIsNullEmptyOrWhiteSpace(password))
-                            {
-                                if (username == userAccount.Name && password == userAccount.Password)
-                                {
-                                    accounts.Remove(userAccount);
-                                    Console.WriteLine("Your user have been successfully removed.");
-                                    Console.WriteLine("You have been logged out.");
-                                    run = false;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Incorrect Username and/or Password.");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Wrong input.");
-                            }
+                            run = RemoveYourAccount(userAccount, run, username, password);
                             break;
                         case 0:
                             run = false;
@@ -134,6 +117,32 @@ namespace SalaryApp
                 }
             }
         }
+
+
+        public bool RemoveYourAccount(Account userAccount, bool run, string username, string password)
+        {
+            if (!StringIsNullEmptyOrWhiteSpace(username) && !StringIsNullEmptyOrWhiteSpace(password))
+            {
+                if (username == userAccount.Name && password == userAccount.Password)
+                {
+                    accounts.Remove(userAccount);
+                    Console.WriteLine("Your user have been successfully removed.");
+                    Console.WriteLine("You have been logged out.");
+                    run = false;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect Username and/or Password.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Wrong input.");
+            }
+
+            return run;
+        }
+
 
         private void AdminMenu(Account userAccount)
         {
@@ -165,10 +174,7 @@ namespace SalaryApp
                             Console.WriteLine($"Role: {userAccount.Role}");
                             break;
                         case 3:
-                            foreach (var account in accounts)
-                            {
-                                Console.WriteLine($"Name: { account.Name} | Password: {account.Password}");
-                            }
+                            Console.WriteLine(PrintUsers());
                             break;
                         case 4:
                             Console.WriteLine("Create a new account");
@@ -203,9 +209,16 @@ namespace SalaryApp
             }
         }
 
+        public string PrintUsers()
+        {
+            foreach (var account in accounts)
+            {
+                return $"Name: {account.Name} | Password: {account.Password}";
+            }
+            return string.Empty;
+        }
 
-
-        private void RemoveAccount(string username, string password)
+        public void RemoveAccount(string username, string password)
         {
             if (!StringIsNullEmptyOrWhiteSpace(username) && !StringIsNullEmptyOrWhiteSpace(password))
             {
@@ -224,7 +237,7 @@ namespace SalaryApp
             }
         }
 
-        private void CreateNewAccount(string username, string password)
+        public void CreateNewAccount(string username, string password)
         {
             if (!StringIsNullEmptyOrWhiteSpace(username) && !StringIsNullEmptyOrWhiteSpace(password))
             {
@@ -235,10 +248,24 @@ namespace SalaryApp
                     switch (adminOrNot)
                     {
                         case "y":
-                            accounts.Add(new Admin { Name = username, Password = password });
+                            if (CreateAdmin(username, password))
+                            {
+                                Console.WriteLine("Admin was created.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Already exist.");
+                            }
                             break;
                         case "n":
-                            accounts.Add(new User { Name = username, Password = password });
+                            if (CreateUser(username, password))
+                            {
+                                Console.WriteLine("User was created.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Already exist.");
+                            }
                             break;
                         default:
                             Console.WriteLine("Something went wrong.");
@@ -254,6 +281,40 @@ namespace SalaryApp
             {
                 Console.WriteLine("Wrong input.");
             }
+        }
+
+        public bool CreateUser(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new User { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CreateAdmin(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new Admin { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
         }
 
         public Account Login(string name, string password)
