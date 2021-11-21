@@ -331,6 +331,7 @@ namespace SalaryApp
             return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
 
 
+
         }
     }
 }
