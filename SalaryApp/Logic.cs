@@ -168,10 +168,12 @@ namespace SalaryApp
                     switch (input)
                     {
                         case 1:
+                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine($"Salary: {userAccount.Salary}");
                             break;
 
                         case 2:
+                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine($"Role: {userAccount.Role}");
                             break;
 
@@ -204,6 +206,7 @@ namespace SalaryApp
                             break;
 
                         default:
+                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine("Wrong input, try again.");
                             break;
                     }
