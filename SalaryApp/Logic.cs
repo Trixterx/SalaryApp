@@ -321,7 +321,24 @@ namespace SalaryApp
                 }
                 else
                 {
-                    accounts.Add(new User { Name = username, Password = password });
+                    accounts.Add(new SuperUser { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CreateSuperPuperUser(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new SuperPuperUser { Name = username, Password = password });
                     return true;
                 }
             }
