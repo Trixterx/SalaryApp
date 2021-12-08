@@ -12,7 +12,8 @@ namespace SalaryApp
             new User { Name = "Rickard", Password = "Hej", Role = "Utbildare", Salary = 45000 },
             new User { Name = "Marcus", Password = "Codic", Role = "Utbildare", Salary = 5000 },
             new User { Name = "Robin", Password = "Robin", Role = "Robin", Salary = 55000 },
-            new Admin { Name = "admin1", Password = "admin1234", Role = "Admin", Salary = 100000 }
+            new Admin { Name = "admin1", Password = "admin1234", Role = "Admin", Salary = 100000 },
+            new Admin { Name = "admin2", Password = "admin1234", Role = "Admin", Salary = 100000 }
         };
 
         private int input;
