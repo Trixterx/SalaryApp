@@ -79,7 +79,7 @@ namespace SalaryApp.Tests
         [TestMethod()]
         public void CheckStringTest()
         {
-            string str = "";
+            string str = null;
             string str2 = "Hej";
 
             var logic = new Logic();
