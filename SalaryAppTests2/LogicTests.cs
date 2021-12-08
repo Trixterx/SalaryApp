@@ -37,6 +37,16 @@ namespace SalaryApp.Tests
         }
 
         [TestMethod()]
+        public void PrintUsers2Test()
+        {
+            var user = new User() { Name = "Rauf", Password = "123456789" };
+
+            var logic = new Logic();
+
+            Assert.AreEqual($"Name: {user.Name} | Password: {user.Password}", logic.PrintUsers());
+        }
+
+        [TestMethod()]
         public void CreateNewUserTest()
         {
             var user = new User() { Name = "Jan", Password = "Hem" };
@@ -57,9 +67,19 @@ namespace SalaryApp.Tests
         }
 
         [TestMethod()]
+        public void CreateNewAdmin2Test()
+        {
+            var user = new Admin() { Name = "Rauf", Password = "123456789" };
+
+            var logic = new Logic();
+
+            Assert.IsTrue(logic.CreateAdmin(user.Name, user.Password));
+        }
+
+        [TestMethod()]
         public void CheckStringTest()
         {
-            string str = null;
+            string str = "";
             string str2 = "Hej";
 
             var logic = new Logic();
