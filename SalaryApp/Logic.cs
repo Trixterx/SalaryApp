@@ -311,6 +311,23 @@ namespace SalaryApp
             return false;
         }
 
+        public bool CreateSuperUser(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new User { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool CreateAdmin(string username, string password)
         {
             foreach (var account in accounts)
