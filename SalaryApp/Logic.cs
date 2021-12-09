@@ -12,7 +12,8 @@ namespace SalaryApp
             new User { Name = "Rickard", Password = "Hej", Role = "Utbildare", Salary = 45000 },
             new User { Name = "Marcus", Password = "Codic", Role = "Utbildare", Salary = 5000 },
             new User { Name = "Robin", Password = "Robin", Role = "Robin", Salary = 55000 },
-            new Admin { Name = "admin1", Password = "admin1234", Role = "Admin", Salary = 100000 }
+            new Admin { Name = "admin1", Password = "admin1234", Role = "Admin", Salary = 100000 },
+            new Admin { Name = "admin2", Password = "admin1234", Role = "Admin", Salary = 100000 }
         };
 
         private int input;
@@ -167,10 +168,12 @@ namespace SalaryApp
                     switch (input)
                     {
                         case 1:
+                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine($"Salary: {userAccount.Salary}");
                             break;
 
                         case 2:
+                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine($"Role: {userAccount.Role}");
                             break;
 
@@ -301,6 +304,40 @@ namespace SalaryApp
                 else
                 {
                     accounts.Add(new User { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CreateSuperUser(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new SuperUser { Name = username, Password = password });
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CreateSuperPuperUser(string username, string password)
+        {
+            foreach (var account in accounts)
+            {
+                if (account.Name == username)
+                {
+                    return false;
+                }
+                else
+                {
+                    accounts.Add(new SuperPuperUser { Name = username, Password = password });
                     return true;
                 }
             }
