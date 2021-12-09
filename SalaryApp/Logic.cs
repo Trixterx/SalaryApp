@@ -206,7 +206,6 @@ namespace SalaryApp
                             break;
 
                         default:
-                            Console.WriteLine($"User: {userAccount.Name}");
                             Console.WriteLine("Wrong input, try again.");
                             break;
                     }
